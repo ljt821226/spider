@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jszx.cricket.demo.module.dao.UserDao">
+
+	<sql id="common_field">
+		<![CDATA[
+			select id as "id",token as "token",1 as "flag" from t_demo s
+		]]>
+	</sql>
+
+	<!-- 单条查询 -->
+	<select
+		id="select"
+		resultType="com.jszx.cricket.demo.module.entity.UserEntity">
+		<include refid="common_field"></include>
+		<where>  
+        	<![CDATA[
+				s.token=#{token}
+			]]>
+		</where>
+	</select>
+	
+	<!-- 单条查询 -->
+	<select
+		id="list"
+		resultType="com.jszx.cricket.demo.module.entity.UserEntity">
+		<include refid="common_field"></include>
+		<where>  
+        	<![CDATA[
+				s.token=#{token}
+			]]>
+		</where>
+	</select>
+	
+	<!-- 单条查询 -->
+	<select
+		id="page"
+		resultType="com.jszx.cricket.demo.module.entity.UserEntity">
+		<include refid="common_field"></include>
+		<where>  
+        	<![CDATA[
+				s.token=#{entity.token}
+			]]>
+		</where>
+	</select>
+
+
+</mapper> 

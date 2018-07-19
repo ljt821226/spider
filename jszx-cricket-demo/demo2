@@ -1,0 +1,49 @@
+2018-07-19 09:47:09.274  INFO 13120 --- [main] c.j.c.p.b.listener.LifecycleListener     : [platform]:应用环境准备完成...
+2018-07-19 09:47:09.373  INFO 13120 --- [main] com.jszx.cricket.demo.Application        : Starting Application on pioneer with PID 13120 (D:\workspace\jszx\jszx-cricket-demo\target\classes started by nw_lvjt in D:\workspace\jszx\jszx-cricket-demo)
+2018-07-19 09:47:09.373  INFO 13120 --- [main] com.jszx.cricket.demo.Application        : The following profiles are active: dev
+2018-07-19 09:47:09.438  INFO 13120 --- [main] c.j.c.p.b.listener.LifecycleListener     : [platform]:应用准备完成...
+2018-07-19 09:47:09.587  INFO 13120 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6d07a63d: startup date [Thu Jul 19 09:47:09 CST 2018]; root of context hierarchy
+2018-07-19 09:47:10.570  INFO 13120 --- [main] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-07-19 09:47:10.673  WARN 13120 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.jszx.cricket.demo]' package. Please check your configuration.
+2018-07-19 09:47:10.885  INFO 13120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 09:47:22.720  WARN 13120 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mapperScannerConfigurer' defined in class path resource [com/jszx/cricket/platform/configuration/MyBatisConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.mybatis.spring.mapper.MapperScannerConfigurer]: Factory method 'mapperScannerConfigurer' threw exception; nested exception is java.lang.NullPointerException
+2018-07-19 09:47:22.782  INFO 13120 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-07-19 09:47:22.804 ERROR 13120 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mapperScannerConfigurer' defined in class path resource [com/jszx/cricket/platform/configuration/MyBatisConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.mybatis.spring.mapper.MapperScannerConfigurer]: Factory method 'mapperScannerConfigurer' threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:590) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1256) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1105) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:503) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$147/1740826931.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:116) ~[spring-context-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.3.RELEASE.jar:2.0.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.3.RELEASE.jar:2.0.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.3.RELEASE.jar:2.0.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.3.RELEASE.jar:2.0.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.3.RELEASE.jar:2.0.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.3.RELEASE.jar:2.0.3.RELEASE]
+	at com.jszx.cricket.demo.Application.main(Application.java:18) [classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.mybatis.spring.mapper.MapperScannerConfigurer]: Factory method 'mapperScannerConfigurer' threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:582) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	... 19 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at com.jszx.cricket.platform.configuration.MyBatisConfiguration.getDao(MyBatisConfiguration.java:179) ~[classes/:na]
+	at com.jszx.cricket.platform.configuration.MyBatisConfiguration.mapperScannerConfigurer(MyBatisConfiguration.java:107) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.0.7.RELEASE.jar:5.0.7.RELEASE]
+	... 20 common frames omitted
+

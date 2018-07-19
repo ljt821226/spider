@@ -1,0 +1,3 @@
+[remote "cricket"]
+	url = https://github.com/ljt821226/cricket.git
+	push = +HEAD:refs/heads/cricket
