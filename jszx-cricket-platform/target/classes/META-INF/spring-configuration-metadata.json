@@ -1,0 +1,126 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+      "name": "jszx.cricket.http",
+      "type": "com.jszx.cricket.platform.properties.HttpProperties"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+      "name": "jszx.cricket.mybatis",
+      "type": "com.jszx.cricket.platform.properties.MybatisProperties"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger",
+      "type": "com.jszx.cricket.platform.properties.OpenapiProperties"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.SwitcherProperties",
+      "name": "jszx.cricket.switcher",
+      "type": "com.jszx.cricket.platform.properties.SwitcherProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+      "defaultValue": false,
+      "name": "jszx.cricket.http.launch",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+      "defaultValue": 80,
+      "name": "jszx.cricket.http.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+      "defaultValue": false,
+      "name": "jszx.cricket.http.switcher",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+      "defaultValue": false,
+      "name": "jszx.cricket.mybatis.cache",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+      "name": "jszx.cricket.mybatis.dao",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+      "name": "jszx.cricket.mybatis.entity",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+      "name": "jszx.cricket.mybatis.xml",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger.contact-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger.description",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "defaultValue": false,
+      "name": "jszx.cricket.swagger.launch",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger.license",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger.license-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger.title",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+      "name": "jszx.cricket.swagger.version",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.SwitcherProperties",
+      "defaultValue": true,
+      "name": "jszx.cricket.switcher.database",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.SwitcherProperties",
+      "defaultValue": false,
+      "name": "jszx.cricket.switcher.mybatis-cache",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.SwitcherProperties",
+      "defaultValue": false,
+      "name": "jszx.cricket.switcher.register",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.cricket.platform.properties.SwitcherProperties",
+      "defaultValue": true,
+      "name": "jszx.cricket.switcher.swagger",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}

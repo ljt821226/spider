@@ -1,0 +1,156 @@
+{
+	"groups": [
+		{
+			"name": "jszx.cricket.http",
+			"type": "com.jszx.cricket.platform.properties.HttpProperties",
+			"description": "HTTP相关配置"
+		},
+		{
+			"name": "jszx.cricket.mybatis",
+			"type": "com.jszx.cricket.platform.properties.MybatisProperties",
+			"sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+			"description": "mybatis相关配置"
+		},
+		{
+			"name": "jszx.cricket.openapi",
+			"type": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "OpenApi相关配置"
+		}
+	],
+	"properties": [
+		{
+			"name": "jszx.cricket.http.launch",
+			"type": "java.lang.Boolean",
+			"sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+			"defaultValue": "false"
+		},
+		{
+			"name": "jszx.cricket.http.switcher",
+			"type": "java.lang.Boolean",
+			"sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+			"defaultValue": "false",
+			"description": "同时启动https(server.ssl.enabled=true)和http(kasaya.http.launch=true)时候，http访问是否跳转到https访问，默认为false"
+		},
+		{
+			"name": "jszx.cricket.http.port",
+			"type": "java.lang.Integer",
+			"sourceType": "com.jszx.cricket.platform.properties.HttpProperties",
+			"defaultValue": "80"
+		},
+		{
+			"name": "jszx.cricket.mybatis.xml",
+			"type": "java.lang.String[]",
+			"sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+			"description": "mybatis脚本文件路径，例如：classpath*:com/jszx/**/dao/*Dao.xml"
+		},
+		{
+			"name": "jszx.cricket.mybatis.dao",
+			"type": "java.lang.String[]",
+			"sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+			"description": "mybatis脚本文件对应的Dao包路径，例如：com.jszx.**.dao"
+		},
+		{
+			"name": "jszx.cricket.mybatis.entity",
+			"type": "java.lang.String[]",
+			"sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+			"description": "mybatis脚本文件所使用的Entity包路径，例如：com.jszx.**.entity"
+		},
+		{
+			"name": "jszx.cricket.mybatis.cache",
+			"type": "java.lang.Boolean",
+			"defaultValue": "false",
+			"sourceType": "com.jszx.cricket.platform.properties.MybatisProperties",
+			"description": "mybatis是否启用二级缓存标识，默认为false"
+		},
+		{
+			"name": "jszx.cricket.openapi.launch",
+			"type": "java.lang.Boolean",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi是否启用标识，默认为true，生产环境需设置为false"
+		},
+		{
+			"name": "jszx.cricket.openapi.title",
+			"type": "java.lang.String",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi标题"
+		},
+		{
+			"name": "jszx.cricket.openapi.contact-name",
+			"type": "java.lang.String",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi联系人名称"
+		},
+		{
+			"name": "jszx.cricket.openapi.description",
+			"type": "java.lang.String",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi描述"
+		},
+		{
+			"name": "jszx.cricket.openapi.version",
+			"type": "java.lang.String",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi版本"
+		},
+		{
+			"name": "jszx.cricket.openapi.license",
+			"type": "java.lang.String",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi许可证"
+		},
+		{
+			"name": "jszx.cricket.openapi.licenseUrl",
+			"type": "java.lang.String",
+			"defaultValue": "true",
+			"sourceType": "com.jszx.cricket.platform.properties.OpenapiProperties",
+			"description": "openapi许可证链接地址"
+		}
+	],
+	"hints": [
+		{
+			"name": "jszx.cricket.http.launch",
+			"values": [
+				{
+					"value": "true",
+					"description": "true"
+				},
+				{
+					"value": "false",
+					"description": "false"
+				}
+			]
+		},
+		{
+			"name": "jszx.cricket.http.switcher",
+			"values": [
+				{
+					"value": "true",
+					"description": "true"
+				},
+				{
+					"value": "false",
+					"description": "false"
+				}
+			]
+		},
+		{
+			"name": "jszx.cricket.mybatis.cache",
+			"values": [
+				{
+					"value": "true",
+					"description": "true"
+				},
+				{
+					"value": "false",
+					"description": "false"
+				}
+			]
+		}
+	]
+}

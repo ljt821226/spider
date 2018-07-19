@@ -1,0 +1,14 @@
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.jszx.cricket.platform.bootstrap.listener.LifecycleListener
+
+#AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.jszx.cricket.platform.configuration.BeanRegistryConfiguration,\
+com.jszx.cricket.platform.configuration.BootstrapConfiguration,\
+com.jszx.cricket.platform.configuration.ConverterConfiguration,\
+com.jszx.cricket.platform.configuration.CxfConfiguration,\
+com.jszx.cricket.platform.configuration.MyBatisConfiguration,\
+com.jszx.cricket.platform.configuration.TomcatConfiguration,\
+com.jszx.cricket.platform.configuration.WebConfiguration,\
+com.jszx.cricket.platform.configuration.TransactionConfiguration
