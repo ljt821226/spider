@@ -1,0 +1,38 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.jszx.spider.spring.boot.autoconfigue.MybatisProperties",
+      "name": "jszx.cricket.mybatis",
+      "description": "mybatis相关配置",
+      "type": "com.jszx.spider.spring.boot.autoconfigue.MybatisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.jszx.spider.spring.boot.autoconfigue.MybatisProperties",
+      "defaultValue": "false",
+      "name": "jszx.cricket.mybatis.cache",
+      "description": "mybatis是否启用二级缓存标识，默认为false",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.jszx.spider.spring.boot.autoconfigue.MybatisProperties",
+      "name": "jszx.cricket.mybatis.dao",
+      "description": "mybatis脚本文件对应的Dao包路径，例如：com.jszx.**.dao",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.jszx.spider.spring.boot.autoconfigue.MybatisProperties",
+      "name": "jszx.cricket.mybatis.entity",
+      "description": "mybatis脚本文件所使用的Entity包路径，例如：com.jszx.**.entity",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.jszx.spider.spring.boot.autoconfigue.MybatisProperties",
+      "name": "jszx.cricket.mybatis.xml",
+      "description": "mybatis脚本文件路径，例如：classpath*:com\/jszx\/**\/dao\/*Dao.xml",
+      "type": "java.lang.String[]"
+    }
+  ]
+}
