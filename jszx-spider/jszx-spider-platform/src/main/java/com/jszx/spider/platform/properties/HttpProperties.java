@@ -2,7 +2,7 @@ package com.jszx.spider.platform.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "jszx.cricket.http")
+@ConfigurationProperties(prefix = "jszx.platform.http")
 public class HttpProperties {
 
 	private boolean launch = false;

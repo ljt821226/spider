@@ -53,7 +53,7 @@ public interface ExampleService {
 	)
 	@GET
 	@Path("/single")
-	public ExampleEntity select(@NotNull @EntityParam("condition") ExampleEntity entity) throws ServiceException;
+	public ExampleEntity select(@EntityParam("condition") ExampleEntity entity) throws ServiceException;
 
 	/**
 	 * 

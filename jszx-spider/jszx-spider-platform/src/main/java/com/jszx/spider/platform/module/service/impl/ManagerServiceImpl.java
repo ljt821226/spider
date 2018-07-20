@@ -20,7 +20,7 @@ import com.jszx.spider.platform.module.service.ManagerService;
  * 
  */
 
-@Service("com.jszx.spider.platform.service.manager")
+@Service
 public class ManagerServiceImpl implements ManagerService {
 
 	private final String MANAGER_PATH = "http://localhost:8101/manager";

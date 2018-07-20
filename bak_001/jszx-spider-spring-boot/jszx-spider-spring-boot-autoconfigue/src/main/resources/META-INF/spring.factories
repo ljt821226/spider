@@ -1,0 +1,5 @@
+
+
+#AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.jszx.spider.spring.boot.autoconfigue.SpiderAutoConfiguration

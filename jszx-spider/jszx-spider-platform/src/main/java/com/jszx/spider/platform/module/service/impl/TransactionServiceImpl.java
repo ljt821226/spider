@@ -32,7 +32,7 @@ import com.jszx.spider.platform.tool.TransactionTool;
  * 
  */
 
-@Service("com.jszx.spider.platform.module.transaction.service.transactionService")
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
 	public Object prepare(TransactionRequestEntity requestEntity) throws ServiceException {

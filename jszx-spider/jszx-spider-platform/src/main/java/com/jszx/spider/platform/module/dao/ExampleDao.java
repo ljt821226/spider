@@ -1,6 +1,8 @@
 package com.jszx.spider.platform.module.dao;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.stereotype.Repository;
 
 import com.jszx.spider.platform.module.entity.ExampleEntity;
@@ -15,7 +17,7 @@ import com.jszx.spider.platform.module.entity.PageEntity;
  * 
  */
 
-@Repository("com.jszx.spider.platform.dao.example")
+
 public interface ExampleDao {
 
 	/**
@@ -117,5 +119,20 @@ public interface ExampleDao {
 	 * @date 2018年4月18日 上午11:55:24
 	 */
 	public int updateBatch(ExampleEntity[] entities);
+	
+	public default String findUserById(ExampleEntity user) {    
+        return new SQL(){{    
+            SELECT("id,name");    
+            SELECT("other");    
+            FROM("user");    
+            if(user.getId()!=null){    
+                WHERE("id = #{id}");    
+            }    
+            if(user.getName()!=null){    
+                WHERE("name = #{name}");    
+            }    
+        //从这个toString可以看出，其内部使用高效的StringBuilder实现SQL拼接    
+        }}.toString();    
+    } 
 
 }

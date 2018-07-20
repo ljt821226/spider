@@ -1,13 +1,8 @@
-# Application Listeners
-org.springframework.context.ApplicationListener=\
-com.jszx.spider.platform.bootstrap.listener.LifecycleListener
+# ApplicationContextInitializer
+org.springframework.context.ApplicationContextInitializer=\
+com.jszx.spider.platform.expand.spring.Initializer.PlatformContextInitializer
 
-#AutoConfiguration
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.jszx.spider.platform.configuration.BootstrapConfiguration,\
-com.jszx.spider.platform.configuration.ConverterConfiguration,\
-com.jszx.spider.platform.configuration.CxfConfiguration,\
-com.jszx.spider.platform.configuration.MyBatisConfiguration,\
-com.jszx.spider.platform.configuration.TomcatConfiguration,\
-com.jszx.spider.platform.configuration.WebConfiguration,\
-com.jszx.spider.platform.configuration.TransactionConfiguration
+# ApplicationListener
+org.springframework.context.ApplicationListener=\
+com.jszx.spider.platform.expand.spring.listener.PlatformLifecycleListener
+

@@ -3,11 +3,13 @@ package com.jszx.spider.platform.configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.context.annotation.AnnotationBeanNameGenerator;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,13 +24,12 @@ import com.jszx.spider.platform.code.SystemCode;
  * @date 2018年3月16日 下午4:05:51
  *
  */
-//@Configuration
+// @Configuration
 public class BeanRegistryConfiguration implements BeanDefinitionRegistryPostProcessor {
 
 	private static final Logger logger = LoggerFactory.getLogger(BeanRegistryConfiguration.class);
 
 	// bean 的名称生成器.
-	private BeanNameGenerator beanNameGenerator = new AnnotationBeanNameGenerator();
 
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
 		logger.info("MyBeanDefinitionRegistryPostProcessor.postProcessBeanFactory()");
@@ -47,6 +48,19 @@ public class BeanRegistryConfiguration implements BeanDefinitionRegistryPostProc
 		// for (String basePackage : ApplicationContainer.getBasePackages()) {
 		// scanner.scan(basePackage);
 		// }
+
+	}
+
+	@Bean
+	public BeanNameGenerator beanNameGenerator() {
+		return new AnnotationBeanNameGenerator() {
+			@Override
+			public String generateBeanName(BeanDefinition definition, BeanDefinitionRegistry registry) {
+				// 全限定类名
+				String beanName = definition.getBeanClassName();
+				return beanName;
+			}
+		};
 	}
 
 }

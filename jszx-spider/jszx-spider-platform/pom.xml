@@ -8,9 +8,7 @@
 		<artifactId>jszx-spider</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.jszx.spider</groupId>
 	<artifactId>jszx-spider-platform</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>jszx-spider-platform</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -23,10 +21,7 @@
 		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-hystrix</artifactId> 
 			</dependency> <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-eureka</artifactId> 
 			</dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -78,11 +73,6 @@
 			<version>1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.codehaus.plexus</groupId>
-			<artifactId>plexus-archiver</artifactId>
-			<version>3.4</version>
-		</dependency>
 
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -131,10 +121,7 @@
 
 		<!--***************************** SPRING-END ****************************** -->
 
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-		</dependency>
+	
 
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>

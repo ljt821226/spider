@@ -1,15 +1,13 @@
 package com.jszx.spider.platform.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
-@Component
-@ConfigurationProperties(prefix = "jszx.cricket.mybatis")
+@ConfigurationProperties(prefix = "jszx.platform.mybatis")
 public class MybatisProperties {
 
 	private String[] dao;
 
-	private String[] xml;
+	private String[] mapper;
 
 	private String[] entity;
 
@@ -23,12 +21,12 @@ public class MybatisProperties {
 		this.dao = dao;
 	}
 
-	public String[] getXml() {
-		return xml;
+	public String[] getMapper() {
+		return mapper;
 	}
 
-	public void setXml(String[] xml) {
-		this.xml = xml;
+	public void setMapper(String[] mapper) {
+		this.mapper = mapper;
 	}
 
 	public String[] getEntity() {

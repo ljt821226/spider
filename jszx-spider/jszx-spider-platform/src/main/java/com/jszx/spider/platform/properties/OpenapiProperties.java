@@ -3,11 +3,10 @@ package com.jszx.spider.platform.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Component
-@ConfigurationProperties(prefix = "jszx.cricket.swagger")
+@ConfigurationProperties(prefix = "jszx.platform.openapi")
 public class OpenapiProperties {
 
-	private boolean launch = false;
+	private boolean launch;
 
 	private String title;
 

@@ -22,7 +22,7 @@ import com.jszx.spider.platform.module.service.LogService;
 import com.jszx.spider.platform.tool.DateTool;
 import com.jszx.spider.platform.tool.StringTool;
 
-@Service("com.jszx.spider.platform.module.service.logService")
+@Service
 public class LogServiceImpl implements LogService {
 
 	/**

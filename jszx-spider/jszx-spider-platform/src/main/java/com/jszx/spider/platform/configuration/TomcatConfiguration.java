@@ -7,14 +7,19 @@ import org.apache.catalina.connector.Connector;
 import org.apache.coyote.http11.Http11NioProtocol;
 import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.jszx.spider.platform.properties.HttpProperties;
+import com.jszx.spider.platform.properties.MybatisProperties;
 
 /**
  * 
@@ -27,10 +32,9 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@AutoConfigureBefore(name = {
-        "org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration", // Spring Boot 1.x
-        "org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration" // Spring Boot 2.x
-})
+@AutoConfigureBefore(name = { "org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration",
+		"org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration" })
+@EnableConfigurationProperties(HttpProperties.class)
 public class TomcatConfiguration {
 
 	@Value("${server.ssl.enabled:false}")
@@ -39,14 +43,8 @@ public class TomcatConfiguration {
 	@Value("${server.port:8443}")
 	private int httpsPort;
 
-	@Value("${kasaya.http.port:80}")
-	private int httpPort;
-
-	@Value("${kasaya.http.launch:false}")
-	private boolean httpLaunch;
-
-	@Value("${kasaya.http.switch:false}")
-	private boolean httpSwitch;
+	@Autowired
+	private HttpProperties httpProperties;
 
 	@Bean
 	public ServletWebServerFactory createEmbeddedServletContainerFactory() {
@@ -73,7 +71,7 @@ public class TomcatConfiguration {
 
 		});
 		// 是否启动http访问
-		if (sslEnabled && httpLaunch) {
+		if (sslEnabled && httpProperties.isLaunch()) {
 			tomcatFactory.addAdditionalTomcatConnectors(httpConnector());
 		}
 		return tomcatFactory;
@@ -84,8 +82,8 @@ public class TomcatConfiguration {
 		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
 		connector.setScheme("http");
 		// http端口号
-		connector.setPort(httpPort);
-		if (httpSwitch) {
+		connector.setPort(httpProperties.getPort());
+		if (httpProperties.isSwitcher()) {
 			// 跳转到https
 			connector.setSecure(false);
 		} else {

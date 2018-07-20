@@ -12,14 +12,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,17 +25,12 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import com.jszx.spider.platform.code.SystemCode;
 import com.jszx.spider.platform.expand.mybatis.cache.RedisCache;
 import com.jszx.spider.platform.expand.mybatis.interceptor.PageInterceptor;
-import com.jszx.spider.platform.expand.mybatis.interceptor.ParamInterceptor;
 import com.jszx.spider.platform.expand.mybatis.interceptor.ResultInterceptor;
 import com.jszx.spider.platform.expand.mybatis.type.CommonTypeHandler;
 import com.jszx.spider.platform.expand.mybatis.wrapper.EntityWrapperFactory;
 import com.jszx.spider.platform.module.entity.DatabaseEntity;
-import com.jszx.spider.platform.properties.HttpProperties;
 import com.jszx.spider.platform.properties.MybatisProperties;
-import com.jszx.spider.platform.properties.OpenapiProperties;
 import com.jszx.spider.platform.properties.SwitcherProperties;
-import com.jszx.spider.platform.tool.SpringTool;
-import com.jszx.spider.platform.tool.StringTool;
 
 /**
  * 
@@ -52,9 +43,10 @@ import com.jszx.spider.platform.tool.StringTool;
  */
 
 @Configuration
-//@ConditionalOnExpression("${jszx.cosmos.switcher.database:true}")
-//@EnableConfigurationProperties(MybatisProperties.class)
-//@AutoConfigureOrder(2)
+@EnableConfigurationProperties(
+	value = { MybatisProperties.class, SwitcherProperties.class }
+)
+// @MapperScan(basePackages = {"com.**.dao","com.**.mapper"})
 public class MyBatisConfiguration {
 
 	private static final Logger logger = LoggerFactory.getLogger(MyBatisConfiguration.class);
@@ -64,15 +56,15 @@ public class MyBatisConfiguration {
 	private static final String DAO = "com.jszx.**.dao";
 
 	private static final String ENTITY = "com.jszx.**.entity";
-	
+
 	@Value("${spring.application.name}")
 	private String applicationName;
 
 	@Autowired
-	private  MybatisProperties mybatisProperties;
+	private MybatisProperties mybatisProperties;
 
 	@Autowired
-	private SwitcherProperties switcherProperty;
+	private SwitcherProperties switcherProperties;
 
 	@Bean("sqlSessionFactoryBean")
 	public SqlSessionFactory sqlSessionFactoryBean(DataSource dataSource) {
@@ -100,15 +92,6 @@ public class MyBatisConfiguration {
 		}
 	}
 
-	@Bean
-	public MapperScannerConfigurer mapperScannerConfigurer() throws Exception {
-		MapperScannerConfigurer msc = new MapperScannerConfigurer();
-		msc.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
-		msc.setBasePackage(getDao());
-		msc.afterPropertiesSet();
-		return msc;
-	}
-
 	/**
 	 * 
 	 * 构建Configuration
@@ -118,15 +101,17 @@ public class MyBatisConfiguration {
 	 * @author 2724216806@qq.com
 	 * @date 2018年3月16日 下午4:10:06
 	 */
-	private org.apache.ibatis.session.Configuration buildConfigutation() {
+	@Bean
+	public org.apache.ibatis.session.Configuration buildConfigutation() {
 		org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
 		configuration.setCallSettersOnNulls(true);
 		configuration.setJdbcTypeForNull(JdbcType.VARCHAR);
-//		if (true) {
-//			configuration.setCacheEnabled(true);
-//			configuration.setMapUnderscoreToCamelCase(true);
-//			configuration.addCache(new RedisCache("_MYBATIS_"));
-//		}
+		configuration.addMappers(DAO);
+		if (mybatisProperties.isCache()) {
+			configuration.setCacheEnabled(true);
+			configuration.setMapUnderscoreToCamelCase(true);
+			configuration.addCache(new RedisCache("_MYBATIS_"));
+		}
 		return configuration;
 	}
 
@@ -143,7 +128,7 @@ public class MyBatisConfiguration {
 	private void buildDataBaseEntity(DataSource dataSource, DatabaseEntity dbEntity) throws SQLException {
 		Connection conn = null;
 		try {
-			if (1==1) {
+			if (switcherProperties.isDatabase()) {
 				conn = dataSource.getConnection();
 				DatabaseMetaData dm = conn.getMetaData();
 				dbEntity.setName(dm.getDatabaseProductName().toLowerCase());
@@ -168,8 +153,8 @@ public class MyBatisConfiguration {
 	private String getXml() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(XML);
-		if(mybatisProperties!=null){
-			build(sb, mybatisProperties.getXml());
+		if (mybatisProperties != null) {
+			build(sb, mybatisProperties.getMapper());
 		}
 		return sb.toString();
 	}
@@ -177,8 +162,7 @@ public class MyBatisConfiguration {
 	private String getDao() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(DAO);
-		String abc=SpringTool.getProperty("jszx.cricket.mybatis.dao");
-		if(mybatisProperties!=null){
+		if (mybatisProperties != null) {
 			build(sb, mybatisProperties.getDao());
 		}
 		return sb.toString();
@@ -187,7 +171,7 @@ public class MyBatisConfiguration {
 	private String getModel() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ENTITY);
-		if(mybatisProperties!=null){
+		if (mybatisProperties != null) {
 			build(sb, mybatisProperties.getEntity());
 		}
 		return sb.toString();

@@ -19,7 +19,7 @@ import com.jszx.spider.platform.module.service.ExampleService;
  * 
  */
 
-@Service("com.jszx.spider.platform.service.example")
+@Service
 public class ExampleServiceImpl implements ExampleService {
 
 	@Autowired
@@ -28,7 +28,7 @@ public class ExampleServiceImpl implements ExampleService {
 	@Override
 	public ExampleEntity select(ExampleEntity entity) throws ServiceException {
 		try {
-			return entity;
+			return exampleDao.select(entity);
 		} catch (Exception e) {
 			throw new ServiceException(ReturnCode.CODE.FAILURE.value(), ReturnCode.MESSAGE.FAILURE.value(), e);
 		}

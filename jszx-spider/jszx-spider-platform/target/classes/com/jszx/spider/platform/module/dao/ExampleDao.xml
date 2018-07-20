@@ -6,9 +6,9 @@
 		<![CDATA[
 			SELECT
 				id as "id",
-				name as "name"
+				token as "token"
 			FROM
-			    test s
+			    t_demo s
 		]]>
 	</sql>
 
@@ -17,6 +17,11 @@
 		id="select"
 		resultType="com.jszx.spider.platform.module.entity.ExampleEntity">
 		<include refid="common_field"></include>
+		<where>
+			<![CDATA[
+				 s.id=#{id}
+			]]>
+		</where>
 	</select>
 
 	<!-- 批量查询 -->

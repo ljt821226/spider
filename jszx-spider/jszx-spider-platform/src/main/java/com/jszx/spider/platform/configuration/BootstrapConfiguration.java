@@ -24,7 +24,7 @@ import com.jszx.spider.platform.properties.SwitcherProperties;
  * @date 2016年10月5日 下午11:52:52
  * 
  */
-//@Configuration
+@Configuration
 //@EnableConfigurationProperties(value={HttpProperties.class,MybatisProperties.class,OpenapiProperties.class,SwitcherProperties.class})
 //@Import({ MybatisProperties.class })
 //@AutoConfigureOrder(1)
